@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour {
 
@@ -17,7 +16,7 @@ public class DeathController : MonoBehaviour {
         if (myCamera.transform.position.y > player.transform.position.y + 100)
         {
             Debug.Log("GAME OVER");
-            Application.Quit();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
