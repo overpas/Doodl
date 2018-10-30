@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
@@ -10,6 +8,7 @@ public class CameraFollow : MonoBehaviour {
 	void LateUpdate () {
 		if (target.position.y > transform.position.y)
         {
+            ScoreHelper.GetInstance().Add(target.position.y - transform.position.y);
             Vector3 newPosition = new Vector3(transform.position.x, target.position.y, transform.position.z);
             transform.position = newPosition;
         }

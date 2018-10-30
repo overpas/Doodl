@@ -3,23 +3,23 @@
     private static ScoreHelper instance = null;
     private static readonly object theLock = new object();
 
-    private int score;
+    private double score = 0d;
 
     private ScoreHelper()
     {
 
     }
 
-    public int GetScore()
+    public double GetScore()
     {
         return score;
     }
 
-    public void IncrementScore()
+    public void Add(float increase)
     {
         lock (theLock)
         {
-            score++;
+            score += increase;
         }
     }
 
@@ -27,7 +27,7 @@
     {
         lock (theLock)
         {
-            score = 0;
+            score = 0d;
         }
     }
 

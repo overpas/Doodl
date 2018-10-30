@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameOverController : MonoBehaviour {
 
@@ -8,7 +9,9 @@ public class GameOverController : MonoBehaviour {
 
     void Start()
     {
-        scoreText.text = "Score: " + ScoreHelper.GetInstance().GetScore();
+        var scoreString = "Score: " + String.Format("{0:0}", ScoreHelper.GetInstance().GetScore());
+        Debug.Log(scoreString);
+        scoreText.text = scoreString;
     }
 
     public void GoToMain()
