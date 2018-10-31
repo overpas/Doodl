@@ -15,8 +15,13 @@ public class DeathController : MonoBehaviour {
 	void Update () {
         if (myCamera.transform.position.y > player.transform.position.y + 6)
         {
-            Debug.Log("GAME OVER");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Kill();
         }
+    }
+
+    public static void Kill()
+    {
+        Debug.Log("GAME OVER");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
